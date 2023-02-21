@@ -19,7 +19,9 @@
                 
                 <!-- first row start-->
                 <tr>
-                    <td> <input type="text" id="myResult"> </td>
+
+                    <!-- colspan means number of colum should span -->
+                    <td colspan="4"> <input type="text" id="myResult"> </td>
     
     
                 </tr>
@@ -29,9 +31,10 @@
                 <!-- second row start -->
     
                 <tr> 
-                    <td><input type="button" value="C" onclick="DeleteMe()"></td>
-                    <td><input type="text" value="(" onclick="calculator()"></td>
-                    <td><input type="text" value=")" onclick="calculator()"></td>
+                    <td><input type="button" value="DEL" onclick="DeleteMe()"></td>
+                    <td><input type="button" value="(" onclick="calculator('(')"></td>
+                    <td><input type="button" value=")" onclick="calculator(')')"></td>
+                    <td><input type="button" value="%" onclick="calculator('%')"></td>
                 </tr>
 
                 <!-- second row end -->
@@ -39,10 +42,10 @@
                 <!-- third row start -->
 
                 <tr> 
-                    <td><input type="button" value="7" onclick="calculator()"></td>
-                    <td><input type="text" value="8" onclick="calculator()"></td>
-                    <td><input type="text" value="9" onclick="calculator()"></td>
-                    <td><input type="text" value="+" onclick="calculator()"></td>
+                    <td><input type="button" value="7" onclick="calculator('7')"></td>
+                    <td><input type="button" value="8" onclick="calculator('8')"></td>
+                    <td><input type="button" value="9" onclick="calculator('9')"></td>
+                    <td><input type="button" value="+" onclick="calculator('+')"></td>
                 </tr>
 
                 <!-- third row end -->
@@ -50,10 +53,10 @@
                 <!-- fourth row start -->
 
                 <tr> 
-                    <td><input type="button" value="4" onclick="calculator()"></td>
-                    <td><input type="text" value="5" onclick="calculator()"></td>
-                    <td><input type="text" value="6" onclick="calculator()"></td>
-                    <td><input type="text" value="-" onclick="calculator()"></td>
+                    <td><input type="button" value="4" onclick="calculator('4')"></td>
+                    <td><input type="button" value="5" onclick="calculator('5')"></td>
+                    <td><input type="button" value="6" onclick="calculator('6')"></td>
+                    <td><input type="button" value="-" onclick="calculator('-')"></td>
                 </tr>
 
                 <!-- fourth row end -->
@@ -61,10 +64,10 @@
                 <!-- fifth row start -->
 
                 <tr> 
-                    <td><input type="button" value="1" onclick="calculator()"></td>
-                    <td><input type="text" value="2" onclick="calculator()"></td>
-                    <td><input type="text" value="3" onclick="calculator()"></td>
-                    <td><input type="text" value="*" onclick="calculator()"></td>
+                    <td><input type="button" value="1" onclick="calculator('1')"></td>
+                    <td><input type="button" value="2" onclick="calculator('2')"></td>
+                    <td><input type="button" value="3" onclick="calculator('3')"></td>
+                    <td><input type="button" value="*" onclick="calculator('*')"></td>
                 </tr>
 
                 <!-- fifth row end -->
@@ -72,10 +75,10 @@
                 <!-- sixth row start -->
 
                 <tr> 
-                    <td><input type="button" value="0" onclick="calculator()"></td>
-                    <td><input type="text" value="." onclick="calculator()"></td>
-                    <td><input type="text" value="/" onclick="calculator()"></td>
-                    <td><input type="text" value="=" onclick="calculator()"></td>
+                    <td><input type="button" value="0" onclick="calculator('0')"></td>
+                    <td><input type="button" value="." onclick="calculator('.')"></td>
+                    <td><input type="button" value="/" onclick="calculator('/')"></td>
+                    <td><input type="button" value="=" onclick="answer()"></td>
                 </tr>
 
                 <!-- sixth row end -->
@@ -99,14 +102,33 @@
         // delete function
         function DeleteMe()
         {
-
+            document.getElementById('myResult').value='';
         }
 
         // calculation function
-        function calculator()
+        function calculator(newValue)
         {
 
+             document.getElementById('myResult').value+=newValue;
+            // const resultShow = document.getElementById('myResult');
+            //  const newValuee= resultShow.innerText;
+            //  console.log(newValuee);
+
         }
+
+        // answer calculation
+        function answer(){
+
+          var a= document.getElementById("myResult").value;
+
+        //   eval is a built in function
+        
+          var b=eval(a);
+          document.getElementById('myResult').value=b; 
+
+        
+        }
+
     </script>
 
     <!-- java script end....................... -->
